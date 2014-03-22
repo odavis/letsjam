@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
-  after_create :build_user_profile
+  has_many :bands
+
+  after_create :build_user_profile, :build_user_bands
 
   private
 
@@ -13,5 +15,11 @@ class User < ActiveRecord::Base
   def build_user_profile
     profile = Profile.create(user: self)
     profile.save(:validate => false)
+    Bands.create(profile_id: profile.id)
   end
+
+  def build_user_bands
+
+  end
+
 end

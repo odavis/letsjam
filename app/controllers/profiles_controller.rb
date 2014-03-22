@@ -7,11 +7,13 @@ class ProfilesController < ApplicationController
   def edit
     @user = current_user
     @profile = @user.profile
+    @bands = Band.where(profile_id: @profile.id)
   end
 
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    @bands = @profile.bands
   end
 
   def update
@@ -31,7 +33,7 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:bio, :name)
+    params.require(:profile).permit(:bio, :name, bands_attributes: [:id, :name, :_destroy])
   end
 
 end

@@ -1,13 +1,27 @@
-<%= form_for @profile do |f| %>
+<%= nested_form_for @profile, url: profile_path do |f| %>
 <div>
  <%= f.label :name %>
- <%= f.text_area :name %>
+ <%= f.text_field :name %>
 </div>
 
 <div>
  <%= f.label :bio %>
  <%= f.text_area :bio %>
 </div>
+
+ <%= f.fields_for :bands do |m| %>
+  <%= m.label "Bands" %>
+  <%= m.text_field :name %>
+  <%= m.link_to_remove "", class: "glyphicon glyphicon-ban-circle" %>
+<% end %>
+
+<%= f.link_to_add "Add", :bands, class: "btn btn-primary " %>
+
+<%= f.link_to_add :bands do %>
+  <button class="btn btn-success">
+    <i class="fa fa-plus"> </i>
+  </button>
+<% end %>
 
  <%= f.submit %>
 <% end %>

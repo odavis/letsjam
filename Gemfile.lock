@@ -110,6 +110,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    nested_form (0.3.2)
     nio4r (1.0.0)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
@@ -208,6 +209,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   meta_request
+  nested_form
   omniauth
   pg
   pry
