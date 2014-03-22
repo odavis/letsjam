@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- Navigation  -->
+  <div>
+    <%= link_to "Home", root_path %>
+    <% if current_user %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete  %>
+      <% else %>
+      <%= link_to "Sign in", new_user_session_path%>
+      <%end%>
+  </div>
 
-<%= yield %>
+<!-- Alerts -->
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <% if current_user %>
+    <%= current_user.email %>
+  <% end %>
+
+<!-- Content -->
+<div class="containter">
+  <%= yield %>
+</div>
 
 </body>
 </html>
