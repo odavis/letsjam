@@ -3,10 +3,11 @@ Profile Show
 <%= link_to "edit profile", edit_profile_path %>
 
 <p>
-<%= @profile.name %>
-<%= @profile.bio %>
+
 
 <br/>
-<%= @bands %>
+<% @bands.each do |band| %>
+  <%= band.name %>
+<% end %>
 </p>
 

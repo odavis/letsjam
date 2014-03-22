@@ -1,13 +1,5 @@
 <%= nested_form_for @profile, url: profile_path do |f| %>
-<div>
- <%= f.label :name %>
- <%= f.text_field :name %>
-</div>
 
-<div>
- <%= f.label :bio %>
- <%= f.text_area :bio %>
-</div>
 
  <%= f.fields_for :bands do |m| %>
   <%= m.label "Bands" %>

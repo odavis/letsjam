@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  bio        :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :bands, dependent: :destroy

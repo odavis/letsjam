@@ -62,7 +62,7 @@ html
                 ul.dropdown-menu
                   li
                     = link_to edit_user_registration_path
-                      = current_user.profile.name
+                      = current_user.full_name
                   li
                     = link_to 'Log Out', destroy_user_session_path, method: :delete
             - else
@@ -79,6 +79,7 @@ html
     div
       = link_to "Home", root_path
       - if current_user
+        = link_to "User", user_path(current_user)
         = link_to "Profile", profile_path(current_user)
         = link_to "Sign out", destroy_user_session_path, method: :delete
       - else
