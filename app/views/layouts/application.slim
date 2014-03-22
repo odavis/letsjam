@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    link href="http://getbootstrap.com/assets/ico/favicon.ico" rel=("shortcut icon")
+    title Lets Jam
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    /! Alerts
+    - if notice
+      p.notice= notice
+    - if alert
+      p.alert= alert
+    /! Navigation
+    div
+      = link_to "Home", root_path
+      - if current_user
+        = link_to "Profile", profile_path(current_user)
+        = link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Sign in", new_user_session_path
+
+      /! Content
+    .containter
+    = yield
+
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+              h3.masthead-brand Cover
+              ul.nav.masthead-nav
+                li.active
+                  a href="http://getbootstrap.com/examples/cover/#"  Home
+                li
+                  a href="http://getbootstrap.com/examples/cover/#"  Features
+                li
+                  a href="http://getbootstrap.com/examples/cover/#"  Contact
+          .inner.cover
+            h1.cover-heading Cover your page.
+            p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+            p.lead
+              a.btn.btn-lg.btn-default href="http://getbootstrap.com/examples/cover/#"  Learn more
+          .mastfoot
+            .inner
+              p
+              | Cover template for
+              a href="http://getbootstrap.com/" Bootstrap
+              | by
+              a href="https://twitter.com/mdo" @mdo
+
