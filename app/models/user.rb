@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   def build_user_profile
     profile = Profile.create(user: self)
     profile.save(:validate => false)
-    Bands.create(profile_id: profile.id)
+    Band.create(profile_id: profile.id)
   end
 
   def build_user_bands
