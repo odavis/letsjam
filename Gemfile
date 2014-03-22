@@ -32,6 +32,9 @@ gem 'friendly_id', '~> 5.0.0'
 gem "omniauth"
 gem 'nested_form'
 
+#Lose Some Weight
+gem 'slim'
+
 
 group :production do
   gem 'pg'
