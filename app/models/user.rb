@@ -15,10 +15,10 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  first                  :string(255)
-#  last                   :string(255)
+#  firstName              :string(255)
+#  lastName               :string(255)
 #  location               :text
-#  age                    :integer
+#  birthdate              :date
 #  username               :string(255)
 #
 
@@ -37,11 +37,11 @@ class User < ActiveRecord::Base
 
   after_create :build_user_profile, :build_user_bands
 
-  private
-
   def full_name
-    first + " " + last
+    firstName + " " + lastName
   end
+
+  private
 
   def build_user_profile
     profile = Profile.create(user: self)
