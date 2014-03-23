@@ -1,0 +1,23 @@
+| User Index
+
+- @users.each do |user|
+  - user.firstName.to_s
+  = link_to user
+
+  .list-group
+    - @users.each do |user|
+      .media.list-group-item
+        /= link_to status, method: :delete, data:{confirm:'Do you really want to delete me?'} do
+        = link_to user do
+          button.btn.close.delete type="button"
+            | &times;
+        a.pull-left href="#"
+          img.media-object.img-circle src=user.gravatar alt="Profile Pic"
+        .media-body
+          - if user
+            = link_to user.username do
+              h4.media-heading= user.full_name
+          - else
+            h4.media-heading This is a fake status..?
+        .pull-right.status-time= link_to user do
+          - time_ago_in_words(user.created_at) + " ago"

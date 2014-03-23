@@ -13,7 +13,7 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    nav.navbar.navbar-inverse role="navigation"
+    nav.navbar.navbar-jam role="navigation"
       .container-fluid
         /! Brand and toggle get grouped for better mobile display
         .navbar-header
@@ -22,9 +22,8 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to 'root', class:"navbar-brand"
-            a.navbar-brand href="#"
-              | Lets Jam
+          = link_to '/', class:"navbar-jam-brand"
+            | LetsJam
         /! Collect the nav links, forms, and other content for toggling
         #navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
@@ -41,8 +40,7 @@ html
                   li
                     = link_to 'Log Out', destroy_user_session_path, method: :delete
             - else
-              li
-                = link_to 'Login', new_user_session_path
+              li= link_to 'Login', new_user_session_path
     /! Alerts
     - if notice
       p.notice= notice
