@@ -15,6 +15,9 @@ class ProfilesController < ApplicationController
     @profile = @user.profile
     @bands = @profile.bands
   end
+
+
+
   #
   #def update
   #  @user = current_user
