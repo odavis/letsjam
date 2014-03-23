@@ -11,7 +11,7 @@
 #
 # f73d640ce8d85dfd0efefeb0284cc686
 
-after_update :find_similiar_artist
+#after_update :find_similiar_artist
 
 class Band < ActiveRecord::Base
   belongs_to :user
