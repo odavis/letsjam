@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322225933) do
+ActiveRecord::Schema.define(version: 20140323042634) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 20140322225933) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first"
-    t.string   "last"
+    t.string   "firstName"
+    t.string   "lastName"
     t.text     "location"
-    t.integer  "age"
+    t.datetime "birthdate"
     t.string   "username"
     t.string   "full_name"
     t.string   "slug"
