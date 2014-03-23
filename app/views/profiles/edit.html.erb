@@ -1,8 +1,13 @@
-<%= form_for @profile do |f|%>
-   <%= f.label :name %><br />
-    <%= f.text_field :name %></div>
 
+<%= nested_form_for @profile do |f|%>
+  <%= f.label :bio %><br />
+  <%= f.text_field :bio %></div>
 
+  <%= f.fields_for :bands do |bands|%>
+    <%= bands.text_field :name %>
+    <%= bands.link_to_remove "Band"%>
+  <% end %>
+  <%= f.link_to_add "Add Band", :bands %>
 
-
-<%end %>
+<%= f.submit %>
+<% end %>

@@ -32,6 +32,7 @@ gem 'annotate'
 
 gem "omniauth"
 gem 'nested_form'
+gem 'httparty'
 
 #Lose Some Weight
 gem 'slim'
