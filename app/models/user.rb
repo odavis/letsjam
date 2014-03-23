@@ -35,21 +35,22 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :bands
 
-  after_create :build_user_profile, :build_user_bands, :set_full_name
+  after_create :build_user_profile, :build_user_bands
 
   private
 
-  def set_full_name
-    binding.pry
-    full_name = self.first + " " + self.last
-    self.full_name = full_name
-    self.save
+  def full_name
+    first + " " + last
   end
 
   def build_user_profile
     profile = Profile.create(user: self)
     profile.save(:validate => false)
+  end
+
+  def build_user_bands
     Band.create(profile_id: profile.id)
+    Band.save(:validate => false)
   end
 
 

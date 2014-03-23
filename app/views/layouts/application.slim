@@ -25,39 +25,13 @@ html
           a.navbar-brand href="#" Lets Jam
         /! Collect the nav links, forms, and other content for toggling
         #navbar-collapse.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.active
-              a href="#"  Link
-            li
-              a href="#"  Link
-            li.dropdown
-              a.dropdown-toggle data-toggle="dropdown" href="#"
-                | Dropdown
-                b.caret
-              ul.dropdown-menu
-                li
-                  a href="#"  Action
-                li
-                  a href="#"  Another action
-                li
-                  a href="#"  Something else here
-                li.divider
-                li
-                  a href="#"  Separated link
-                li.divider
-                li
-                  a href="#"  One more separated link
-          form.navbar-form.navbar-left role="search"
-            .form-group
-              input.form-control placeholder="Search" type="text"
-            button.btn.btn-default type="submit"  Submit
           ul.nav.navbar-nav.navbar-right
             li
               a href="#"  Link
             - if current_user
               li.dropdown
                 a.dropdown-toggle data-toggle="dropdown" href="#"
-                  | Dropdown
+                  = current_user.full_name
                   b.caret
                 ul.dropdown-menu
                   li
